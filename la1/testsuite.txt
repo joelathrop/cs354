@@ -1,0 +1,54 @@
+Test Suite for la1-1
+Each function tested in the tsar.scm file,
+with a (display function to return expected output
+Numbers in the last two tests represent randomly
+generated integers between 1-100
+Run with "guile tsar.scm"
+
+Test 1
+	test (display (tsar 'z 'x 'y))
+	expect output (z)
+
+Test 2
+	test (display (tsar 'x 'x 'y))
+	expect output (y)
+
+Test 3
+	test (display (tsar 'x 'x 'x))
+	expect output (x)
+
+Test 4
+	test (display (tsar '() 'x 'y))
+	expect output ()
+
+Test 5
+	test (display (tsar '(x x) 'x 'y))
+	expect output (y y)
+
+Test 6
+	test (display (tsar '(x (x) z) 'x 'y))
+	expect output (y (y) z)
+
+Test 7
+	test (display (tsar '(x (x) z) '(x) '(y y)))
+	expect output (x (y y) z)
+
+Test 8
+	test (display (tsar '(x (x) ((x)) z) '(x) '(y y)))
+	expect output (x (y y) ((y y)) z)
+
+Test 9
+	test (display (tsar '(x (x) ((x)) z) '(x) '()))
+	expect output (x () (()) z)
+
+Test 10
+	test (display (tsar '(x (x) ((x)) z) '() '(y y)))
+	expect output (x (x y y) ((x y y) y y) z y y)
+
+Test 11
+	test (display (tsar '(x (x) ((x)) z) '(x) '(RANDOM y)))
+	expect output (x (74 y) ((46 y)) z)
+
+Test 12
+	test (display (tsar '(x (x) ((x)) z) '(x) '(RANDOM RANDOM)))
+	expect output (x (76 76) ((63 63)) z)
